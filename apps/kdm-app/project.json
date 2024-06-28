@@ -33,6 +33,23 @@
         ],
         "resetCache": true
       }
+    },
+    "build-ios": {
+      "executor": "@nx/react-native:build-ios",
+      "options": {
+        "buildFolder": "dist/ios/build",
+        "mode": "Release"
+      }
+    },
+    "install-ios": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [
+          "nx build-ios kdm",
+          "ios-deploy --debug --bundle apps/kdm-app/ios/dist/ios/build/Build/Products/Release-iphoneos/Kdm.app"
+        ],
+        "parallel": false
+      }
     }
   }
 }
