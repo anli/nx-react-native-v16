@@ -5,5 +5,34 @@
   "projectType": "application",
   "tags": [],
   "// targets": "to see all targets run: nx show project kdm --web",
-  "targets": {}
+  "targets": {
+    "build-android": {
+      "executor": "@nx/react-native:build-android",
+      "outputs": [
+        "{projectRoot}/build/outputs/bundle",
+        "{projectRoot}/build/outputs/apk"
+      ],
+      "options": {
+        "tasks": [
+          "clean",
+          "assembleRelease"
+        ],
+        "resetCache": true
+      }
+    },
+    "install-android": {
+      "executor": "@nx/react-native:build-android",
+      "outputs": [
+        "{projectRoot}/build/outputs/bundle",
+        "{projectRoot}/build/outputs/apk"
+      ],
+      "options": {
+        "tasks": [
+          "clean",
+          "installRelease"
+        ],
+        "resetCache": true
+      }
+    }
+  }
 }
