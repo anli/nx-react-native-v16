@@ -1,7 +1,10 @@
 {
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
   "namedInputs": {
-    "default": ["{projectRoot}/**/*", "sharedGlobals"],
+    "default": [
+      "{projectRoot}/**/*",
+      "sharedGlobals"
+    ],
     "production": [
       "default",
       "!{projectRoot}/.eslintrc.json",
@@ -17,38 +20,46 @@
   "nxCloudAccessToken": "ODc4YmE3NTAtN2YwMi00M2RmLTkxYWEtOWI1N2YzNTNlOGFkfHJlYWQtd3JpdGU=",
   "plugins": [
     {
-      "plugin": "@nx/react-native/plugin",
       "options": {
-        "startTargetName": "start",
-        "upgradeTargetname": "update",
+        "buildAndroidTargetName": "build-android",
+        "buildIosTargetName": "build-ios",
         "bundleTargetName": "bundle",
         "podInstallTargetName": "pod-install",
-        "runIosTargetName": "run-ios",
         "runAndroidTargetName": "run-android",
-        "buildIosTargetName": "build-ios",
-        "buildAndroidTargetName": "build-android",
-        "syncDepsTargetName": "sync-deps"
-      }
+        "runIosTargetName": "run-ios",
+        "startTargetName": "start",
+        "syncDepsTargetName": "sync-deps",
+        "upgradeTargetname": "update"
+      },
+      "plugin": "@nx/react-native/plugin"
     },
     {
-      "plugin": "@nx/eslint/plugin",
       "options": {
         "targetName": "lint"
-      }
+      },
+      "plugin": "@nx/eslint/plugin"
     },
     {
-      "plugin": "@nx/jest/plugin",
       "options": {
         "targetName": "test"
-      }
+      },
+      "plugin": "@nx/jest/plugin"
     },
     {
-      "plugin": "@nx/webpack/plugin",
       "options": {
         "buildTargetName": "build",
-        "serveTargetName": "serve",
-        "previewTargetName": "preview"
-      }
+        "previewTargetName": "preview",
+        "serveTargetName": "serve"
+      },
+      "plugin": "@nx/webpack/plugin"
     }
-  ]
+  ],
+  "release": {
+    "projects": [
+      "apps/*"
+    ],
+    "version": {
+      "conventionalCommits": true
+    }
+  }
 }
