@@ -1,4 +1,4 @@
-package com.kdm
+package com.anlitz.kdm
 
 import com.facebook.react.ReactActivity
 import com.facebook.react.ReactActivityDelegate

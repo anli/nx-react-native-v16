@@ -1,4 +1,4 @@
-package com.kdm
+package com.anlitz.kdm
 
 import android.app.Application
 import com.facebook.react.PackageList
