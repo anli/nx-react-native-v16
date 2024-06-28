@@ -20,7 +20,7 @@ export const OnboardingPage = () => {
         <Text variant="bodyLarge" style={{ alignSelf: 'center', textAlign: 'center' }}>Curabitur erat magna, volutpat sed massa id, ullamcorper lobortis felis</Text>
       </View>
 
-      <Button mode="elevated" style={{ alignSelf: 'center' }}>
+      <Button mode="elevated" style={{ alignSelf: 'center' }} icon="lamp">
         Get Started
       </Button>
 
