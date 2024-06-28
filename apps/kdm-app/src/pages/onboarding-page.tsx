@@ -22,7 +22,7 @@ export const OnboardingPage = () => {
         </Text>
 
         <Image
-          source={{ uri: 'https://fakeimg.pl/350x350/?text=KDM' }}
+          source={{ uri: 'https://imgur.com/47qQtEU.png' }}
           width={windowWidth}
           style={{ aspectRatio: 1 }}
         />
@@ -43,7 +43,7 @@ export const OnboardingPage = () => {
           </Text>
         </View>
 
-        <Button mode="elevated" style={{ alignSelf: 'center' }} icon="lamp">
+        <Button mode="elevated" style={{ alignSelf: 'center' }} icon="fire">
           Get Started
         </Button>
       </View>

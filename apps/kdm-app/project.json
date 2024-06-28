@@ -40,7 +40,7 @@
       "options": {
         "commands": [
           "nx build-ios kdm",
-          "ios-deploy --debug --bundle apps/kdm-app/ios/dist/ios/build/Build/Products/Release-iphoneos/Kdm.app"
+          "ios-deploy --justlaunch --debug --bundle apps/kdm-app/ios/dist/ios/build/Build/Products/Release-iphoneos/Kdm.app"
         ],
         "parallel": false
       }
