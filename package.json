@@ -2,7 +2,9 @@
   "name": "@nx-react-native/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "ci": "nx affected -t lint test type-check"
+  },
   "private": true,
   "dependencies": {
     "react": "18.2.0",

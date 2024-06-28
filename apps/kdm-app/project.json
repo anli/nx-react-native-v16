@@ -50,6 +50,15 @@
         ],
         "parallel": false
       }
+    },
+    "type-check": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [
+          "tsc -b"
+        ],
+        "cwd": "apps/kdm-app"
+      }
     }
   }
 }
