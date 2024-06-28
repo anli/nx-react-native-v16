@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "ci": "nx affected -t lint test type-check"
+    "ci": "nx affected -t lint test type-check",
+    "start": "nx start"
   },
   "private": true,
   "dependencies": {
