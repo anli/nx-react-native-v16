@@ -1,3 +1,4 @@
+import { useNavigation } from '@react-navigation/native';
 import { Image, View, useWindowDimensions } from 'react-native';
 import { Button, Text, useTheme } from 'react-native-paper';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -5,6 +6,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 export const OnboardingPage = () => {
   const { width: windowWidth } = useWindowDimensions();
   const theme = useTheme();
+  const { navigate } = useNavigation();
 
   return (
     <SafeAreaView
@@ -47,7 +49,12 @@ export const OnboardingPage = () => {
           </Text>
         </View>
 
-        <Button mode="elevated" style={{ alignSelf: 'center' }} icon="fire">
+        <Button
+          mode="elevated"
+          style={{ alignSelf: 'center' }}
+          icon="fire"
+          onPress={() => navigate('BottomTabs')}
+        >
           Get Started
         </Button>
       </View>
