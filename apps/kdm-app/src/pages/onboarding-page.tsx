@@ -36,7 +36,11 @@ export const OnboardingPage = () => {
           </Text>
           <Text
             variant="bodyLarge"
-            style={{ alignSelf: 'center', textAlign: 'center' }}
+            style={{
+              alignSelf: 'center',
+              textAlign: 'center',
+              color: theme.colors.onSurfaceVariant,
+            }}
           >
             Curabitur erat magna, volutpat sed massa id, ullamcorper lobortis
             felis
