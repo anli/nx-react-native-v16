@@ -4,7 +4,7 @@ import { createMaterialBottomTabNavigator } from 'react-native-paper/react-navig
 
 import { IconProps } from 'react-native-vector-icons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import { KdmCardTypesPage } from '../../pages';
+import { KdmCardTypesPage, ShowdownMonsterPage } from '../../pages';
 
 type Config = {
   name: string;
@@ -44,7 +44,23 @@ const KdmCardsStack = () => {
     </Stack.Navigator>
   );
 };
+const ShowdownMonsterStack = () => {
+  return (
+    <Stack.Navigator screenOptions={pageScreenOptions}>
+      <Stack.Screen
+        name="ShowdownMonsterPage"
+        component={ShowdownMonsterPage}
+      />
+    </Stack.Navigator>
+  );
+};
 const configs: Config[] = [
+  {
+    name: 'ShowdownMonsterStack',
+    component: ShowdownMonsterStack,
+    tabBarLabel: 'Monster',
+    tabBarIcon: getTabBarIcon('paw', 'paw-outline'),
+  },
   {
     name: 'CardsTab',
     component: KdmCardsStack,

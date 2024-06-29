@@ -1,7 +1,7 @@
-import { useNavigation } from '@react-navigation/native';
 import { Image, View, useWindowDimensions } from 'react-native';
 import { Button, Text, useTheme } from 'react-native-paper';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { useCreateFirstSession } from '../features/session';
 
 const pageConfig = {
   title: 'Umbra',
@@ -16,7 +16,11 @@ const pageConfig = {
 export const OnboardingPage = () => {
   const { width: windowWidth } = useWindowDimensions();
   const theme = useTheme();
-  const { navigate } = useNavigation();
+  const { mutate: createFirstSession } = useCreateFirstSession();
+
+  const handleStart = () => {
+    createFirstSession();
+  };
 
   return (
     <SafeAreaView
@@ -63,7 +67,7 @@ export const OnboardingPage = () => {
           mode="elevated"
           style={{ alignSelf: 'center' }}
           icon="fire"
-          onPress={() => navigate(pageConfig.buttonPageName)}
+          onPress={handleStart}
         >
           {pageConfig.buttonTitle}
         </Button>
