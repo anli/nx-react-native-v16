@@ -5,39 +5,35 @@ import {
   useMemo,
   useState,
 } from 'react';
-import { Session } from './session';
+import { Session } from '../../../shared/api';
 
-type SessionContextValue = {
-  sessions?: Session[];
-  setSessions: React.Dispatch<React.SetStateAction<Session[]>>;
+type ContextValue = {
+  data?: Session[];
+  setData: React.Dispatch<React.SetStateAction<Session[]>>;
   currentId?: Session['id'];
   setCurrentId: React.Dispatch<React.SetStateAction<Session['id']>>;
 };
 
-type SessionContextProviderProps = PropsWithChildren;
+type ContextProviderProps = PropsWithChildren;
 
-const SessionContext = createContext<SessionContextValue | undefined>(
-  undefined
-);
+const Context = createContext<ContextValue | undefined>(undefined);
 
-export const SessionProvider = ({ children }: SessionContextProviderProps) => {
-  const [sessions, setSessions] = useState<Session[] | undefined>(undefined);
+export const SessionProvider = ({ children }: ContextProviderProps) => {
+  const [data, setData] = useState<Session[] | undefined>(undefined);
   const [currentId, setCurrentId] = useState<Session['id'] | undefined>(
     undefined
   );
 
-  const value: SessionContextValue = useMemo(
-    () => ({ sessions, setSessions, currentId, setCurrentId }),
-    [currentId, sessions]
+  const value: ContextValue = useMemo(
+    () => ({ data, setData, currentId, setCurrentId }),
+    [currentId, data]
   );
 
-  return (
-    <SessionContext.Provider value={value}>{children}</SessionContext.Provider>
-  );
+  return <Context.Provider value={value}>{children}</Context.Provider>;
 };
 
 export const useSessions = () => {
-  const context = useContext(SessionContext);
+  const context = useContext(Context);
 
   if (context === undefined) {
     throw new Error('useSessions must be used within a SessionProvider');
@@ -47,7 +43,7 @@ export const useSessions = () => {
 };
 
 export const useCurrentSession = () => {
-  const { sessions, currentId } = useContext(SessionContext);
+  const { data, currentId } = useSessions();
 
-  return { data: sessions?.find(({ id }) => id === currentId) };
+  return { data: data?.find(({ id }) => id === currentId) };
 };

@@ -1,12 +1,18 @@
+import {
+  getFirstShowdownMonster,
+  useShowdownMonsters,
+} from '../../../entities/showdown-monster';
 import { getFirstSession, useSessions } from '../../../entities/session';
 
 export const useCreateFirstSession = () => {
-  const { setSessions, setCurrentId } = useSessions();
+  const { setData, setCurrentId } = useSessions();
+  const { setData: setShowdownMonsters } = useShowdownMonsters();
 
   return {
     mutate: () => {
-      setSessions([getFirstSession()]);
+      setData([getFirstSession()]);
       setCurrentId(getFirstSession().id);
+      setShowdownMonsters([getFirstShowdownMonster(getFirstSession().id)]);
     },
   };
 };

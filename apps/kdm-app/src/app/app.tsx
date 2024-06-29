@@ -4,18 +4,21 @@ import { useTheme } from './use-theme';
 import { RootStack } from './navigation';
 import { StatusBar } from '../shared/ui';
 import { SessionProvider } from '../entities/session';
+import { ShowdownMonsterProvider } from '../entities/showdown-monster';
 
 export const App = () => {
   const theme = useTheme();
 
   return (
     <SessionProvider>
-      <PaperProvider theme={theme}>
-        <StatusBar />
-        <NavigationContainer theme={theme}>
-          <RootStack />
-        </NavigationContainer>
-      </PaperProvider>
+      <ShowdownMonsterProvider>
+        <PaperProvider theme={theme}>
+          <StatusBar />
+          <NavigationContainer theme={theme}>
+            <RootStack />
+          </NavigationContainer>
+        </PaperProvider>
+      </ShowdownMonsterProvider>
     </SessionProvider>
   );
 };
