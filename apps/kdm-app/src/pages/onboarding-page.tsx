@@ -29,34 +29,30 @@ export const OnboardingPage = () => {
         backgroundColor: theme.colors.background,
       }}
     >
-      <View style={{ justifyContent: 'space-evenly', flex: 1 }}>
-        <Text
-          variant="displayMedium"
-          style={{ alignSelf: 'center', textAlign: 'center' }}
-        >
+      <View className="flex-1 justify-evenly">
+        <Text className="self-center text-center px-5" variant="displayMedium">
           {pageConfig.title}
         </Text>
 
         <Image
           source={{ uri: pageConfig.imageUrl }}
           width={windowWidth}
-          style={{ aspectRatio: 1 }}
+          className="aspect-square"
         />
 
-        <View style={{ gap: 8 }}>
+        <View className="gap-2">
           <Text
             variant="headlineSmall"
-            style={{ alignSelf: 'center', textAlign: 'center' }}
+            className="self-center text-center px-5"
           >
             {pageConfig.subtitle}
           </Text>
           <Text
             variant="bodyLarge"
+            className="self-center px-5"
             style={{
-              alignSelf: 'center',
               textAlign: 'justify',
               color: theme.colors.onSurfaceVariant,
-              paddingHorizontal: 20,
             }}
           >
             {pageConfig.description}
