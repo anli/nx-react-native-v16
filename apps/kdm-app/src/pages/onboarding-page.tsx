@@ -3,6 +3,16 @@ import { Image, View, useWindowDimensions } from 'react-native';
 import { Button, Text, useTheme } from 'react-native-paper';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
+const pageConfig = {
+  title: 'Umbra',
+  imageUrl: 'https://imgur.com/47qQtEU.png',
+  subtitle: 'Ignite Hope',
+  description:
+    'In a world consumed by darkness, your settlement stands alone. Survival hinges on keeping your people alive against insurmountable odds.',
+  buttonTitle: 'Embrace Shadows',
+  buttonPageName: 'BottomTabs' as const,
+};
+
 export const OnboardingPage = () => {
   const { width: windowWidth } = useWindowDimensions();
   const theme = useTheme();
@@ -20,32 +30,32 @@ export const OnboardingPage = () => {
           variant="displayMedium"
           style={{ alignSelf: 'center', textAlign: 'center' }}
         >
-          KDM
+          {pageConfig.title}
         </Text>
 
         <Image
-          source={{ uri: 'https://imgur.com/47qQtEU.png' }}
+          source={{ uri: pageConfig.imageUrl }}
           width={windowWidth}
           style={{ aspectRatio: 1 }}
         />
 
         <View style={{ gap: 8 }}>
           <Text
-            variant="headlineMedium"
+            variant="headlineSmall"
             style={{ alignSelf: 'center', textAlign: 'center' }}
           >
-            Lorem ipsum
+            {pageConfig.subtitle}
           </Text>
           <Text
             variant="bodyLarge"
             style={{
               alignSelf: 'center',
-              textAlign: 'center',
+              textAlign: 'justify',
               color: theme.colors.onSurfaceVariant,
+              paddingHorizontal: 20,
             }}
           >
-            Curabitur erat magna, volutpat sed massa id, ullamcorper lobortis
-            felis
+            {pageConfig.description}
           </Text>
         </View>
 
@@ -53,9 +63,9 @@ export const OnboardingPage = () => {
           mode="elevated"
           style={{ alignSelf: 'center' }}
           icon="fire"
-          onPress={() => navigate('BottomTabs')}
+          onPress={() => navigate(pageConfig.buttonPageName)}
         >
-          Get Started
+          {pageConfig.buttonTitle}
         </Button>
       </View>
     </SafeAreaView>
