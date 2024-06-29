@@ -3,6 +3,8 @@
     "@nx/react": "*",
     "@nx/webpack": "*",
     "@react-native/metro-config": "*",
+    "@react-navigation/native": "*",
+    "@react-navigation/native-stack": "*",
     "@testing-library/jest-native": "*",
     "@testing-library/react-native": "*",
     "metro-config": "*",
@@ -11,6 +13,7 @@
     "react-native": "*",
     "react-native-paper": "*",
     "react-native-safe-area-context": "*",
+    "react-native-screens": "*",
     "react-native-svg": "*",
     "react-native-svg-transformer": "*",
     "react-native-vector-icons": "*"

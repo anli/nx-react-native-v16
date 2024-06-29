@@ -24,6 +24,19 @@
         "mode": "Release"
       }
     },
+    "clean": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [
+          "cd android && ./gradlew clean",
+          "cd ios && pod install",
+          "cd ios && xcodebuild clean -workspace Kdm.xcworkspace -scheme Kdm",
+          "watchman watch-del-all"
+        ],
+        "cwd": "apps/kdm-app",
+        "parallel": false
+      }
+    },
     "install-android": {
       "executor": "@nx/react-native:build-android",
       "options": {
