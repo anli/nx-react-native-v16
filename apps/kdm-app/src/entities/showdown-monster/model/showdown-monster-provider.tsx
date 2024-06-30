@@ -1,3 +1,4 @@
+import { ShowdownMonster, encounters, monsters } from '../../../shared/api';
 import {
   PropsWithChildren,
   createContext,
@@ -5,7 +6,6 @@ import {
   useMemo,
   useState,
 } from 'react';
-import { ShowdownMonster } from '../../../shared/api';
 
 type ContextValue = {
   data?: ShowdownMonster[];
@@ -42,11 +42,23 @@ type UseShowdownMonsterProps = {
 
 export const useShowdownMonster = ({ variables }: UseShowdownMonsterProps) => {
   const { data } = useContext(Context);
+  const showdownMonster = data?.find(
+    (_item) =>
+      _item.year === variables.year && _item.sessionId === variables.sessionId
+  );
+
+  const encounter = encounters.find(
+    (_item) => _item.id === showdownMonster.encounterId
+  );
+  const monster = monsters.find((_item) => _item.id === encounter.monsterId);
 
   return {
-    data: data?.find(
-      (_item) =>
-        _item.year === variables.year && _item.sessionId === variables.sessionId
-    ),
+    data: {
+      ...showdownMonster,
+      encounter: {
+        ...encounter,
+        monster,
+      },
+    },
   };
 };
