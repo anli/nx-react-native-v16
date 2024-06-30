@@ -58,7 +58,7 @@ export const ShowdownMonsterStats = ({
       },
     });
 
-    !!newValue &&
+    newValue !== undefined &&
       mutateShowdownMonster((_item) => ({ ..._item, [id]: newValue }));
   };
 

@@ -24,34 +24,36 @@ export const StatsUpdateActionSheet = ({
       containerStyle={{ backgroundColor: theme.colors.background }}
       {...payload?.actionSheetProps}
     >
-      <List.Section>
-        <List.Item
-          title={payload.data?.title}
-          right={(_props) => {
-            return (
-              <>
-                <IconButton
-                  icon="minus"
-                  onPress={() => setValue((_value) => _value - 1)}
-                  {..._props}
-                />
-                <Text variant="bodyLarge" {..._props}>
-                  {value}
-                </Text>
-                <IconButton
-                  icon="plus"
-                  onPress={() => setValue((_value) => _value + 1)}
-                  {..._props}
-                />
-              </>
-            );
-          }}
-        />
-      </List.Section>
-      <View className="px-5">
-        <Button mode="outlined" onPress={handlePress}>
-          Update
-        </Button>
+      <View className="py-4">
+        <List.Section>
+          <List.Item
+            title={payload.data?.title}
+            right={(_props) => {
+              return (
+                <>
+                  <IconButton
+                    icon="minus"
+                    onPress={() => setValue((_value) => _value - 1)}
+                    {..._props}
+                  />
+                  <Text variant="bodyLarge" {..._props}>
+                    {value}
+                  </Text>
+                  <IconButton
+                    icon="plus"
+                    onPress={() => setValue((_value) => _value + 1)}
+                    {..._props}
+                  />
+                </>
+              );
+            }}
+          />
+        </List.Section>
+        <View className="px-5">
+          <Button mode="outlined" onPress={handlePress}>
+            Update
+          </Button>
+        </View>
       </View>
     </ActionSheet>
   );
