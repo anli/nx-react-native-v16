@@ -1,9 +1,9 @@
 import { View, useWindowDimensions } from 'react-native';
-import { useTheme } from 'react-native-paper';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useCreateFirstSession } from '../features/session';
 import { getRenderContentBody, useContentPage } from '../entities/content-page';
 import { useRoute } from '@react-navigation/native';
+import { useTheme } from '../shared/ui';
 
 export const ContentPage = () => {
   const {

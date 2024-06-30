@@ -1,8 +1,9 @@
 import { View } from 'react-native';
 import ActionSheet, { SheetProps } from 'react-native-actions-sheet';
-import { Button, IconButton, List, Text, useTheme } from 'react-native-paper';
+import { Button, IconButton, List, Text } from 'react-native-paper';
 import { useState } from 'react';
 import { BottomSheet } from './bottom-sheet-provider';
+import { useTheme } from '../theme-provider';
 
 export const StatsUpdateActionSheet = ({
   sheetId,

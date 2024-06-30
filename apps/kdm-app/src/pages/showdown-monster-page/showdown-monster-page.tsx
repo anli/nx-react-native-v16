@@ -1,9 +1,10 @@
 import { ScrollView } from 'react-native';
-import { Appbar, List, useTheme } from 'react-native-paper';
+import { Appbar, List } from 'react-native-paper';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useCurrentSession } from '../../entities/session';
 import { useShowdownMonster } from '../../entities/showdown-monster';
 import { ShowdownMonsterStats } from './showdown-monster-stats';
+import { useTheme } from '../../shared/ui';
 
 export const ShowdownMonsterPage = () => {
   const theme = useTheme();
@@ -33,7 +34,7 @@ export const ShowdownMonsterPage = () => {
 
         <List.Section>
           <List.Subheader>Stats</List.Subheader>
-          <ShowdownMonsterStats className="px-4 flex-row gap-2 flex-wrap" />
+          <ShowdownMonsterStats className="px-4 flex-row gap-4 flex-wrap" />
         </List.Section>
       </ScrollView>
     </SafeAreaView>

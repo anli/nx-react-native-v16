@@ -1,8 +1,7 @@
-import { PaperProvider } from 'react-native-paper';
 import { NavigationContainer } from '@react-navigation/native';
 import { useTheme } from './use-theme';
 import { RootStack } from './navigation';
-import { BottomSheetProvider, StatusBar } from '../shared/ui';
+import { StatusBar, ThemeProvider } from '../shared/ui';
 import { SessionProvider } from '../entities/session';
 import { ShowdownMonsterProvider } from '../entities/showdown-monster';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
@@ -14,14 +13,12 @@ export const App = () => {
     <GestureHandlerRootView style={{ flex: 1 }}>
       <SessionProvider>
         <ShowdownMonsterProvider>
-          <PaperProvider theme={theme}>
+          <ThemeProvider>
             <StatusBar />
-            <BottomSheetProvider>
-              <NavigationContainer theme={theme}>
-                <RootStack />
-              </NavigationContainer>
-            </BottomSheetProvider>
-          </PaperProvider>
+            <NavigationContainer theme={theme}>
+              <RootStack />
+            </NavigationContainer>
+          </ThemeProvider>
         </ShowdownMonsterProvider>
       </SessionProvider>
     </GestureHandlerRootView>
