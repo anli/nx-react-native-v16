@@ -1249,6 +1249,13 @@
   resolved "https://registry.yarnpkg.com/@discoveryjs/json-ext/-/json-ext-0.5.7.tgz#1d572bfbbe14b7704e0ba0f39b74815b84870d70"
   integrity sha512-dBVuXR082gk3jsFp7Rd/JI4kytwGHecnCoTtXFb7DB6CNHp4rg5k1bhg0nWdLGLnOV71lmDzGQaLMy8iPLY0pw==
 
+"@egjs/hammerjs@^2.0.17":
+  version "2.0.17"
+  resolved "https://registry.yarnpkg.com/@egjs/hammerjs/-/hammerjs-2.0.17.tgz#5dc02af75a6a06e4c2db0202cae38c9263895124"
+  integrity sha512-XQsZgjm2EcVUiZQf11UBJQfmZeEmOW8DpI1gsFeln6w0ae0ii4dMQEQ0kjl6DspdWX1aGY1/loyXnP0JS06e/A==
+  dependencies:
+    "@types/hammerjs" "^2.0.36"
+
 "@eslint-community/eslint-utils@^4.2.0", "@eslint-community/eslint-utils@^4.4.0":
   version "4.4.0"
   resolved "https://registry.yarnpkg.com/@eslint-community/eslint-utils/-/eslint-utils-4.4.0.tgz#a23514e8fb9af1269d5f7788aa556798d61c6b59"
@@ -2879,6 +2886,11 @@
   integrity sha512-olP3sd1qOEe5dXTSaFvQG+02VdRXcdytWLAZsAq1PecU8uqQAhkrnbli7DagjtXKW/Bl7YJbUsa8MPcuc8LHEQ==
   dependencies:
     "@types/node" "*"
+
+"@types/hammerjs@^2.0.36":
+  version "2.0.45"
+  resolved "https://registry.yarnpkg.com/@types/hammerjs/-/hammerjs-2.0.45.tgz#ffa764bb68a66c08db6efb9c816eb7be850577b1"
+  integrity sha512-qkcUlZmX6c4J8q45taBKTL3p+LbITgyx7qhlPYOdOHZB7B31K0mXbP5YA7i7SgDeEGuI9MnumiKPEMrxg8j3KQ==
 
 "@types/http-errors@*":
   version "2.0.4"
@@ -9118,6 +9130,13 @@ react-is@^17.0.1:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-17.0.2.tgz#e691d4a8e9c789365655539ab372762b0efb54f0"
   integrity sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w==
 
+react-native-actions-sheet@^0.9.3:
+  version "0.9.3"
+  resolved "https://registry.yarnpkg.com/react-native-actions-sheet/-/react-native-actions-sheet-0.9.3.tgz#7439d395d62f15adb812fe37eb72b9e3a6b1af1a"
+  integrity sha512-Hk+r2ndC+P8Q50CndPBFscdHVga2Fa86DRmMm+0ZPqs3WuwWodYXAaiLBcH/7l3x4+iqQxzhg6afLz+TNbY2Jg==
+  dependencies:
+    react-native-safe-area-context "^4.8.2"
+
 react-native-css-interop@0.0.36:
   version "0.0.36"
   resolved "https://registry.yarnpkg.com/react-native-css-interop/-/react-native-css-interop-0.0.36.tgz#ff87c9ab5cab72c4b24f0f6eed60ca95c31f0dc2"
@@ -9128,6 +9147,16 @@ react-native-css-interop@0.0.36:
     "@babel/types" "^7.23.0"
     babel-plugin-tester "^11.0.4"
     lightningcss "1.22.0"
+
+react-native-gesture-handler@^2.17.1:
+  version "2.17.1"
+  resolved "https://registry.yarnpkg.com/react-native-gesture-handler/-/react-native-gesture-handler-2.17.1.tgz#f458a6099f09afac144f3e67add96667d859a88d"
+  integrity sha512-pWfniN6NuVKUq40KACuD3NCMe+bWNQCpD3cmxL6aLSCTwPKYmf7l4Lp0/E/almpjvxhybJZtFLU0w4tmxnIKaA==
+  dependencies:
+    "@egjs/hammerjs" "^2.0.17"
+    hoist-non-react-statics "^3.3.0"
+    invariant "^2.2.4"
+    prop-types "^15.7.2"
 
 react-native-paper@^5.12.3:
   version "5.12.3"
@@ -9152,7 +9181,7 @@ react-native-reanimated@^3.12.1:
     convert-source-map "^2.0.0"
     invariant "^2.2.4"
 
-react-native-safe-area-context@^4.10.7:
+react-native-safe-area-context@^4.10.7, react-native-safe-area-context@^4.8.2:
   version "4.10.7"
   resolved "https://registry.yarnpkg.com/react-native-safe-area-context/-/react-native-safe-area-context-4.10.7.tgz#91d04e510bf96e3c38bec2beb7ae37347522a503"
   integrity sha512-Lq+gtuIF28mMtBacFchGpO1KHMTvzeb3ji1HAVnMTPe3qWR46Tb4AlztZTvTwUnpZ8JVaC9sKXnJHKmuaIQwXA==

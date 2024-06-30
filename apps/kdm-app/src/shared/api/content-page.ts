@@ -54,9 +54,9 @@ export const ContentPages: ContentPage[] = [
       {
         element: 'Text',
         variant: 'bodyLarge' as const,
-        className: 'self-center px-5',
         data: 'In a world consumed by darkness, your settlement stands alone. Survival hinges on keeping your people alive against insurmountable odds.',
         style: {
+          paddingHorizontal: 20,
           textAlign: 'justify',
           colorVariableName: 'onSurfaceVariant',
         },

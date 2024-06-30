@@ -41,16 +41,25 @@ type UseShowdownMonsterProps = {
 };
 
 export const useShowdownMonster = ({ variables }: UseShowdownMonsterProps) => {
-  const { data } = useContext(Context);
-  const showdownMonster = data?.find(
+  const { data, setData } = useContext(Context);
+  const index = data?.findIndex(
     (_item) =>
       _item.year === variables.year && _item.sessionId === variables.sessionId
   );
-
-  const encounter = encounters.find(
-    (_item) => _item.id === showdownMonster.encounterId
+  const showdownMonster = data?.[index];
+  const encounter = encounters?.find(
+    (_item) => _item.id === showdownMonster?.encounterId
   );
-  const monster = monsters.find((_item) => _item.id === encounter.monsterId);
+  const monster = monsters?.find((_item) => _item.id === encounter?.monsterId);
+
+  const mutate = (callback: (value: ShowdownMonster) => ShowdownMonster) => {
+    setData((_data) => {
+      const newItem = callback(showdownMonster);
+      const newData = [..._data];
+      newData.splice(index, 1, newItem);
+      return newData;
+    });
+  };
 
   return {
     data: {
@@ -60,5 +69,6 @@ export const useShowdownMonster = ({ variables }: UseShowdownMonsterProps) => {
         monster,
       },
     },
+    mutate,
   };
 };

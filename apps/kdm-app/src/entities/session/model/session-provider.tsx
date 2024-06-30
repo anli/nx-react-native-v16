@@ -43,7 +43,20 @@ export const useSessions = () => {
 };
 
 export const useCurrentSession = () => {
-  const { data, currentId } = useSessions();
+  const { data: sessions, currentId, setData, setCurrentId } = useSessions();
+  const index = sessions?.findIndex(({ id }) => id === currentId);
+  const data = sessions?.[index];
 
-  return { data: data?.find(({ id }) => id === currentId) };
+  const mutate = (newValue: Session | null) => {
+    if (!newValue) {
+      setData((_data) => {
+        const newData = [..._data];
+        newData.splice(index, 1);
+        return newData;
+      });
+      setCurrentId(undefined);
+    }
+  };
+
+  return { data, mutate };
 };

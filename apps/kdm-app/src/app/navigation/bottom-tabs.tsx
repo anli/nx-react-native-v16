@@ -2,9 +2,8 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Platform } from 'react-native';
 import { createMaterialBottomTabNavigator } from 'react-native-paper/react-navigation';
 
-import { IconProps } from 'react-native-vector-icons';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import { KdmCardTypesPage, ShowdownMonsterPage } from '../../pages';
+import { Icon } from '../../shared/ui';
 
 type Config = {
   name: string;
@@ -19,9 +18,6 @@ type Config = {
   }) => React.JSX.Element;
 };
 
-const Icon = (props: IconProps) => {
-  return <MaterialCommunityIcons {...props} />;
-};
 const Tab = createMaterialBottomTabNavigator();
 const getTabBarIcon =
   (focusedIconName: string, unfocusedIconName: string) =>

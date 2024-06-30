@@ -7,11 +7,15 @@ import { ShowdownMonsterStats } from './showdown-monster-stats';
 
 export const ShowdownMonsterPage = () => {
   const theme = useTheme();
-  const { data: session } = useCurrentSession();
+  const { data: session, mutate: mutateCurrentSession } = useCurrentSession();
   const { data: showdownMonster } = useShowdownMonster({
     variables: { sessionId: session.id, year: session.year },
   });
   const title = `${showdownMonster.encounter.name}`;
+
+  const handleRestart = () => {
+    mutateCurrentSession(null);
+  };
 
   return (
     <SafeAreaView
@@ -24,6 +28,7 @@ export const ShowdownMonsterPage = () => {
       <ScrollView>
         <Appbar.Header mode="medium">
           <Appbar.Content title={title} />
+          <Appbar.Action icon="restart" onPress={handleRestart} />
         </Appbar.Header>
 
         <List.Section>
