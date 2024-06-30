@@ -1,7 +1,7 @@
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 
 export type RootStackParamList = {
-  OnboardingPage: undefined;
+  ContentPage: { id: string };
   BottomTabs: undefined;
   CardsTab: undefined;
   KdmCardTypesPage: undefined;

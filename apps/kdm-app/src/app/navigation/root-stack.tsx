@@ -1,5 +1,5 @@
 import React from 'react';
-import { OnboardingPage } from '../../pages';
+import { ContentPage } from '../../pages';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { BottomTabs } from './bottom-tabs';
 import { useCurrentSession } from '../../entities/session';
@@ -22,7 +22,11 @@ export const RootStack = () => {
 
   return (
     <Stack.Navigator screenOptions={pageScreenOptions}>
-      <Stack.Screen name="OnboardingPage" component={OnboardingPage} />
+      <Stack.Screen
+        name="ContentPage"
+        component={ContentPage}
+        initialParams={{ id: 'ONBOARDING' }}
+      />
     </Stack.Navigator>
   );
 };
