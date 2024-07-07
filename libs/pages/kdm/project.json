@@ -1,0 +1,9 @@
+{
+  "// targets": "to see all targets run: nx show project pages-kdm --web",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "name": "pages-kdm",
+  "projectType": "library",
+  "sourceRoot": "libs/pages/kdm/src",
+  "tags": ["type:pages"],
+  "targets": {}
+}

@@ -10,12 +10,9 @@
     "src/test-setup.ts"
   ],
   "extends": "./tsconfig.json",
-  "files": ["../../../types/nativewind-env.d.ts"],
-  "include": [
-    "src/**/*.js",
-    "src/**/*.jsx",
-    "src/**/*.ts",
-    "src/**/*.tsx",
-    "../../../apps/kdm-app/src/pages/kdm-card-types-page.tsx"
-  ]
+  "files": [
+    "../../../types/nativewind-env.d.ts",
+    "../../../types/react-navigation.d.ts"
+  ],
+  "include": ["src/**/*.js", "src/**/*.jsx", "src/**/*.ts", "src/**/*.tsx"]
 }

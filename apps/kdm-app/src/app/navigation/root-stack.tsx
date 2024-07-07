@@ -1,5 +1,5 @@
 import React from 'react';
-import { ContentPage } from '../../pages';
+import { ContentPage } from '@pages/content';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { BottomTabs } from './bottom-tabs';
 import { useCurrentSession } from '@entities/kdm-session';

@@ -1,0 +1,9 @@
+{
+  "// targets": "to see all targets run: nx show project pages-content --web",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "name": "pages-content",
+  "projectType": "library",
+  "sourceRoot": "libs/pages/content/src",
+  "tags": ["type:pages"],
+  "targets": {}
+}

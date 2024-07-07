@@ -19,6 +19,8 @@
       "@entities/kdm-session": ["libs/entities/kdm-session/src/index.ts"],
       "@entities/kdm-showdown": ["libs/entities/kdm-showdown/src/index.ts"],
       "@features/kdm-session": ["libs/features/kdm-session/src/index.ts"],
+      "@pages/content": ["libs/pages/content/src/index.ts"],
+      "@pages/kdm": ["libs/pages/kdm/src/index.ts"],
       "@shared/api": ["libs/shared/api/src/index.ts"],
       "@shared/ui": ["libs/shared/ui/src/index.ts"]
     }

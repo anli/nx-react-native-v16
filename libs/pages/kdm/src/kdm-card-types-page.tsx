@@ -8,8 +8,8 @@ const mediumAspectRatio = 0.637;
 const largeAspectRatio = 0.55;
 const getListItemIcon =
   (icon: string) =>
-    (props: Pick<ComponentProps<typeof List.Icon>, 'color' | 'style'>) =>
-      <List.Icon {...props} icon={icon} />;
+  (props: Pick<ComponentProps<typeof List.Icon>, 'color' | 'style'>) =>
+    <List.Icon {...props} icon={icon} />;
 
 const useCardTypes = () => {
   return {

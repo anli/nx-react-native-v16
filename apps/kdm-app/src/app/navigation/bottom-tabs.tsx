@@ -2,7 +2,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Platform } from 'react-native';
 import { createMaterialBottomTabNavigator } from 'react-native-paper/react-navigation';
 
-import { KdmCardTypesPage, ShowdownMonsterPage } from '../../pages';
+import { KdmCardTypesPage, ShowdownMonsterPage } from '@pages/kdm';
 import { Icon } from '@shared/ui';
 
 type Config = {
