@@ -5,7 +5,7 @@ export const getElementStyle = ({
   style,
 }: {
   variables: ContentElementVariables;
-  style: ContentElementStyle;
+  style?: ContentElementStyle;
 }) => {
   if (!style) {
     return undefined;
@@ -14,7 +14,9 @@ export const getElementStyle = ({
   const { colorVariableName, ...restStyle } = style ?? {};
 
   return {
-    color: colorVariableName ? variables?.[colorVariableName] : undefined,
+    color: colorVariableName
+      ? variables?.[colorVariableName as keyof ContentElementVariables]
+      : undefined,
     ...restStyle,
   } as unknown;
 };

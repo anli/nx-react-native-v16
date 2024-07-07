@@ -1,7 +1,13 @@
 import { Button, ButtonProps, MD3TypescaleKey, Text } from 'react-native-paper';
 import { ContentBody, ContentElementVariables } from '@shared/api';
 import { getElementStyle } from './get-element-style';
-import { Image } from 'react-native';
+import {
+  Image,
+  ImageStyle,
+  StyleProp,
+  TextStyle,
+  ViewStyle,
+} from 'react-native';
 
 export const getRenderContentBody =
   ({ variables }: { variables: ContentElementVariables }) =>
@@ -28,7 +34,7 @@ export const getRenderContentBody =
           return (
             <Text
               key={index}
-              style={elementStyle}
+              style={elementStyle as StyleProp<TextStyle>}
               variant={variant as keyof typeof MD3TypescaleKey}
               {...rest}
             >
@@ -45,9 +51,15 @@ export const getRenderContentBody =
               key={index}
               source={{ uri: data }}
               width={
-                widthVariableName ? variables?.[widthVariableName] : undefined
+                widthVariableName
+                  ? Number(
+                      variables?.[
+                        widthVariableName as keyof ContentElementVariables
+                      ]
+                    )
+                  : undefined
               }
-              style={elementStyle}
+              style={elementStyle as StyleProp<ImageStyle>}
               {...rest}
             />
           );
@@ -59,10 +71,12 @@ export const getRenderContentBody =
             <Button
               key={index}
               mode={variant as ButtonProps['mode']}
-              style={elementStyle}
+              style={elementStyle as StyleProp<ViewStyle>}
               onPress={
                 onPressVariableName
-                  ? variables?.[onPressVariableName]
+                  ? (variables?.[
+                      onPressVariableName as keyof ContentElementVariables
+                    ] as () => void)
                   : undefined
               }
               {...rest}

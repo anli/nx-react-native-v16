@@ -1,15 +1,9 @@
-import { ShowdownMonster, encounters, monsters } from '@shared/api';
-import {
-  PropsWithChildren,
-  createContext,
-  useContext,
-  useMemo,
-  useState,
-} from 'react';
+import { ShowdownMonster, encounters, monsters, storage } from '@shared/api';
+import { PropsWithChildren, createContext, useContext, useMemo } from 'react';
 
 type ContextValue = {
   data?: ShowdownMonster[];
-  setData: React.Dispatch<React.SetStateAction<ShowdownMonster[] | undefined>>;
+  mutate: React.Dispatch<React.SetStateAction<ShowdownMonster[] | undefined>>;
 };
 
 type ContextProviderProps = PropsWithChildren;
@@ -17,9 +11,16 @@ type ContextProviderProps = PropsWithChildren;
 const Context = createContext<ContextValue | undefined>(undefined);
 
 export const ShowdownMonsterProvider = ({ children }: ContextProviderProps) => {
-  const [data, setData] = useState<ShowdownMonster[] | undefined>(undefined);
+  const [data, mutate] = storage.useArray<ShowdownMonster[] | undefined>(
+    'ShowdownMonster'
+  );
 
-  const value: ContextValue = useMemo(() => ({ data, setData }), [data]);
+  const value: ContextValue = useMemo(() => {
+    return {
+      data,
+      mutate,
+    };
+  }, [data, mutate]);
 
   return <Context.Provider value={value}>{children}</Context.Provider>;
 };
@@ -58,8 +59,14 @@ export const useShowdownMonster = ({ variables }: UseShowdownMonsterProps) => {
   );
   const monster = monsters?.find((_item) => _item.id === encounter?.monsterId);
 
-  const mutate = (callback: (value: ShowdownMonster) => ShowdownMonster) => {
-    context.setData((_data = []) => {
+  const mutate = (
+    callback: undefined | ((value: ShowdownMonster) => ShowdownMonster)
+  ) => {
+    context.mutate((_data = []) => {
+      if (callback === undefined) {
+        return undefined;
+      }
+
       const newItem = callback(showdownMonster);
       const newData = [..._data];
       newData.splice(index, 1, newItem);

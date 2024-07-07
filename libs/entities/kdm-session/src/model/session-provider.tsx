@@ -1,15 +1,9 @@
-import {
-  PropsWithChildren,
-  createContext,
-  useContext,
-  useMemo,
-  useState,
-} from 'react';
-import { Session } from '@shared/api';
+import { PropsWithChildren, createContext, useContext, useMemo } from 'react';
+import { Session, storage } from '@shared/api';
 
 type ContextValue = {
   data?: Session[];
-  setData: React.Dispatch<React.SetStateAction<Session[] | undefined>>;
+  mutate: React.Dispatch<React.SetStateAction<Session[] | undefined>>;
   currentId?: Session['id'];
   setCurrentId: React.Dispatch<React.SetStateAction<Session['id'] | undefined>>;
 };
@@ -19,14 +13,12 @@ type ContextProviderProps = PropsWithChildren;
 const Context = createContext<ContextValue | undefined>(undefined);
 
 export const SessionProvider = ({ children }: ContextProviderProps) => {
-  const [data, setData] = useState<Session[] | undefined>(undefined);
-  const [currentId, setCurrentId] = useState<Session['id'] | undefined>(
-    undefined
-  );
+  const [data, mutate] = storage.useArray<Session[] | undefined>('Session');
+  const [currentId, setCurrentId] = storage.useString('Session.CurrentId');
 
   const value: ContextValue = useMemo(
-    () => ({ data, setData, currentId, setCurrentId }),
-    [currentId, data]
+    () => ({ data, mutate, currentId, setCurrentId }),
+    [currentId, data, setCurrentId, mutate]
   );
 
   return <Context.Provider value={value}>{children}</Context.Provider>;
@@ -43,7 +35,12 @@ export const useSessions = () => {
 };
 
 export const useCurrentSession = () => {
-  const { data: sessions, currentId, setData, setCurrentId } = useSessions();
+  const {
+    data: sessions,
+    currentId,
+    mutate: mutateSessions,
+    setCurrentId,
+  } = useSessions();
   const index = sessions?.findIndex(({ id }) => id === currentId);
   const data = index !== undefined ? sessions?.[index] : undefined;
 
@@ -51,11 +48,15 @@ export const useCurrentSession = () => {
     return { data: undefined, mutate: undefined };
   }
 
-  const mutate = (newValue: Session | null) => {
+  const mutate = (newValue: Session | undefined) => {
     if (!newValue) {
-      setData((_data = []) => {
+      mutateSessions((_data = []) => {
         const newData = [..._data];
         newData.splice(index, 1);
+        if (newData.length === 0) {
+          return undefined;
+        }
+
         return newData;
       });
       setCurrentId(undefined);

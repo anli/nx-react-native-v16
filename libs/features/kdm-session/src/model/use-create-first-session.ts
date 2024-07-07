@@ -5,8 +5,8 @@ import {
 import { getFirstSession, useSessions } from '@entities/kdm-session';
 
 export const useCreateFirstSession = () => {
-  const { setData, setCurrentId } = useSessions();
-  const { setData: setShowdownMonsters } = useShowdownMonsters();
+  const { mutate: mutateSesions, setCurrentId } = useSessions();
+  const { mutate: mutateShowdownMonsters } = useShowdownMonsters();
   const showdownMonster = getFirstShowdownMonster(getFirstSession().id);
 
   if (!showdownMonster) {
@@ -17,9 +17,9 @@ export const useCreateFirstSession = () => {
 
   return {
     mutate: () => {
-      setData([getFirstSession()]);
+      mutateSesions([getFirstSession()]);
       setCurrentId(getFirstSession().id);
-      setShowdownMonsters([showdownMonster]);
+      mutateShowdownMonsters([showdownMonster]);
     },
   };
 };

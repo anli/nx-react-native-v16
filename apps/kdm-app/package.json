@@ -14,6 +14,7 @@
     "react-native": "*",
     "react-native-actions-sheet": "*",
     "react-native-gesture-handler": "*",
+    "react-native-mmkv": "*",
     "react-native-paper": "*",
     "react-native-reanimated": "*",
     "react-native-safe-area-context": "*",
