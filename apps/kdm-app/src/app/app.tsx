@@ -1,7 +1,7 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { useTheme } from './use-theme';
 import { RootStack } from './navigation';
-import { StatusBar, ThemeProvider } from '../shared/ui';
+import { StatusBar, ThemeProvider } from '@shared/ui';
 import { SessionProvider } from '../entities/session';
 import { ShowdownMonsterProvider } from '../entities/showdown-monster';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';

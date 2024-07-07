@@ -4,7 +4,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { useCurrentSession } from '../../entities/session';
 import { useShowdownMonster } from '../../entities/showdown-monster';
 import { ShowdownMonsterStats } from './showdown-monster-stats';
-import { useTheme } from '../../shared/ui';
+import { useTheme } from '@shared/ui';
 
 export const ShowdownMonsterPage = () => {
   const theme = useTheme();

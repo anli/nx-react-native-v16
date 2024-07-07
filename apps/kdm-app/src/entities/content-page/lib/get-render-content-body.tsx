@@ -1,5 +1,5 @@
 import { Button, ButtonProps, MD3TypescaleKey, Text } from 'react-native-paper';
-import { ContentBody, ContentElementVariables } from '../../../shared/api';
+import { ContentBody, ContentElementVariables } from '@shared/api';
 import { getElementStyle } from './get-element-style';
 import { Image } from 'react-native';
 

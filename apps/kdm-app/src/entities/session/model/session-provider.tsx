@@ -5,7 +5,7 @@ import {
   useMemo,
   useState,
 } from 'react';
-import { Session } from '../../../shared/api';
+import { Session } from '@shared/api';
 
 type ContextValue = {
   data?: Session[];

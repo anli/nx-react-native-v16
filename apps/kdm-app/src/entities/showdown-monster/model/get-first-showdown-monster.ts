@@ -1,4 +1,4 @@
-import { ShowdownMonster, encounters } from '../../../shared/api';
+import { ShowdownMonster, encounters } from '@shared/api';
 
 const encounterId = 'WHITE_LION_FIRST_STORY';
 

@@ -2,7 +2,7 @@ import { View, ViewProps } from 'react-native';
 import { Chip } from 'react-native-paper';
 import { useShowdownMonster } from '../../entities/showdown-monster';
 import { useCurrentSession } from '../../entities/session';
-import { BottomSheet } from '../../shared/ui';
+import { BottomSheet } from '@shared/ui';
 
 type ShowdownMonsterStatsProps = ViewProps;
 

@@ -9,7 +9,7 @@ export const StatsUpdateActionSheet = ({
   sheetId,
   payload,
 }: SheetProps<'StatsUpdateActionSheet'>) => {
-  const [value, setValue] = useState<number>(payload.data?.value);
+  const [value, setValue] = useState<number>(payload?.data?.value ?? 0);
   const theme = useTheme();
 
   const handlePress = () => {
@@ -27,7 +27,7 @@ export const StatsUpdateActionSheet = ({
       <View className="py-4">
         <List.Section>
           <List.Item
-            title={payload.data?.title}
+            title={payload?.data?.title}
             right={(_props) => {
               return (
                 <>

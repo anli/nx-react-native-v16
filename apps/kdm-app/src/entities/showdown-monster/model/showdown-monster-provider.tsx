@@ -1,4 +1,4 @@
-import { ShowdownMonster, encounters, monsters } from '../../../shared/api';
+import { ShowdownMonster, encounters, monsters } from '@shared/api';
 import {
   PropsWithChildren,
   createContext,

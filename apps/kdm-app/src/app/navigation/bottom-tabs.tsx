@@ -3,7 +3,7 @@ import { Platform } from 'react-native';
 import { createMaterialBottomTabNavigator } from 'react-native-paper/react-navigation';
 
 import { KdmCardTypesPage, ShowdownMonsterPage } from '../../pages';
-import { Icon } from '../../shared/ui';
+import { Icon } from '@shared/ui';
 
 type Config = {
   name: string;

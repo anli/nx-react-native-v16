@@ -1,4 +1,4 @@
-import { Session } from '../../../shared/api';
+import { Session } from '@shared/api';
 
 export const getFirstSession = (): Session => {
   return {

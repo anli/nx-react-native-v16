@@ -1,7 +1,4 @@
-import {
-  ContentElementStyle,
-  ContentElementVariables,
-} from '../../../shared/api';
+import { ContentElementStyle, ContentElementVariables } from '@shared/api';
 
 export const getElementStyle = ({
   variables,
