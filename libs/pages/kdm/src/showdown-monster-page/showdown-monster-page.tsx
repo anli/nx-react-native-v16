@@ -18,12 +18,12 @@ export const ShowdownMonsterPage = () => {
   const title = `${showdownMonster?.encounter.name}`;
 
   const handleRestart = () => {
-    Alert.alert('Are your sure?', 'You cannot undo this', [
+    Alert.alert('End Session?', 'You cannot undo this.', [
       {
         text: 'Cancel',
         style: 'cancel',
       },
-      { text: 'OK', onPress: deleteCurrentSession },
+      { text: 'End', onPress: deleteCurrentSession, style: 'destructive' },
     ]);
   };
 

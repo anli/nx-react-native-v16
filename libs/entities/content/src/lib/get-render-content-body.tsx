@@ -1,13 +1,9 @@
 import { Button, ButtonProps, MD3TypescaleKey, Text } from 'react-native-paper';
 import { ContentBody, ContentElementVariables } from '@shared/api';
 import { getElementStyle } from './get-element-style';
-import {
-  Image,
-  ImageStyle,
-  StyleProp,
-  TextStyle,
-  ViewStyle,
-} from 'react-native';
+import { StyleProp, TextStyle, ViewStyle } from 'react-native';
+import { Image } from '@shared/ui';
+import { ImageStyle } from 'expo-image';
 
 export const getRenderContentBody =
   ({ variables }: { variables: ContentElementVariables }) =>
@@ -46,20 +42,23 @@ export const getRenderContentBody =
 
       case 'Image':
         if (typeof data === 'string') {
+          const imageStyle = {
+            width: widthVariableName
+              ? Number(
+                  variables?.[
+                    widthVariableName as keyof ContentElementVariables
+                  ]
+                )
+              : undefined,
+            aspectRatio: 1,
+          };
+
           return (
             <Image
+              contentFit="fill"
               key={index}
               source={{ uri: data }}
-              width={
-                widthVariableName
-                  ? Number(
-                      variables?.[
-                        widthVariableName as keyof ContentElementVariables
-                      ]
-                    )
-                  : undefined
-              }
-              style={elementStyle as StyleProp<ImageStyle>}
+              style={[elementStyle as StyleProp<ImageStyle>, imageStyle]}
               {...rest}
             />
           );
