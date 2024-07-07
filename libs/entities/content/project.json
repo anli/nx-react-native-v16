@@ -1,0 +1,9 @@
+{
+  "// targets": "to see all targets run: nx show project entities-content --web",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "name": "entities-content",
+  "projectType": "library",
+  "sourceRoot": "libs/entities/content/src",
+  "tags": ["type:entities"],
+  "targets": {}
+}

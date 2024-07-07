@@ -2,7 +2,7 @@ import React from 'react';
 import { ContentPage } from '../../pages';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { BottomTabs } from './bottom-tabs';
-import { useCurrentSession } from '../../entities/session';
+import { useCurrentSession } from '@entities/kdm-session';
 
 const pageScreenOptions = {
   headerShown: false,

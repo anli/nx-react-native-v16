@@ -1,8 +1,8 @@
 import { ScrollView } from 'react-native';
 import { Appbar, List } from 'react-native-paper';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { useCurrentSession } from '../../entities/session';
-import { useShowdownMonster } from '../../entities/showdown-monster';
+import { useCurrentSession } from '@entities/kdm-session';
+import { useShowdownMonster } from '@entities/kdm-showdown';
 import { ShowdownMonsterStats } from './showdown-monster-stats';
 import { useTheme } from '@shared/ui';
 

@@ -1,0 +1,9 @@
+{
+  "// targets": "to see all targets run: nx show project entities-kdm-showdown --web",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "name": "entities-kdm-showdown",
+  "projectType": "library",
+  "sourceRoot": "libs/entities/kdm-showdown/src",
+  "tags": ["type:entities"],
+  "targets": {}
+}

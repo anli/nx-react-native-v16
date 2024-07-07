@@ -1,8 +1,8 @@
 import {
   getFirstShowdownMonster,
   useShowdownMonsters,
-} from '../../../entities/showdown-monster';
-import { getFirstSession, useSessions } from '../../../entities/session';
+} from '@entities/kdm-showdown';
+import { getFirstSession, useSessions } from '@entities/kdm-session';
 
 export const useCreateFirstSession = () => {
   const { setData, setCurrentId } = useSessions();

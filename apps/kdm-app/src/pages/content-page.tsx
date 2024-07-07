@@ -1,7 +1,7 @@
 import { View, useWindowDimensions } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useCreateFirstSession } from '../features/session';
-import { getRenderContentBody, useContentPage } from '../entities/content-page';
+import { getRenderContentBody, useContentPage } from '@entities/content';
 import { useRoute } from '@react-navigation/native';
 import { useTheme } from '@shared/ui';
 
