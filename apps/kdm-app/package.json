@@ -7,6 +7,8 @@
     "@react-navigation/native-stack": "*",
     "@testing-library/jest-native": "*",
     "@testing-library/react-native": "*",
+    "expo": "*",
+    "expo-image": "*",
     "metro-config": "*",
     "nativewind": "*",
     "react": "*",

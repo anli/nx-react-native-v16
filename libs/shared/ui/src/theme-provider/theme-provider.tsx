@@ -12,6 +12,7 @@ import {
 
 import { adaptNavigationTheme } from 'react-native-paper';
 import { BottomSheetProvider } from '../bottom-sheet';
+import { ImageModal, ModalProvider } from '../modal';
 
 const customLightThemeColors = {
   primary: 'rgb(135, 82, 0)',
@@ -132,6 +133,9 @@ export const ThemeProvider = ({ children, ...rest }: ProviderProps) => {
 
   return (
     <PaperProvider theme={theme} {...rest}>
+      <ModalProvider>
+        <ImageModal />
+      </ModalProvider>
       <BottomSheetProvider>{children}</BottomSheetProvider>
     </PaperProvider>
   );

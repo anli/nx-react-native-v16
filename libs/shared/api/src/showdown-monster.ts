@@ -5,6 +5,7 @@ export type ShowdownMonster = {
   sessionId: string;
   year: number;
   encounterId: string;
+  aiActiveIds?: string[];
 } & Pick<
   Encounter,
   | 'movement'

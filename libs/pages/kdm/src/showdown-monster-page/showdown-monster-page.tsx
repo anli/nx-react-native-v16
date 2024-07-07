@@ -6,6 +6,7 @@ import { useShowdownMonster } from '@entities/kdm-showdown';
 import { ShowdownMonsterStats } from './showdown-monster-stats';
 import { useTheme } from '@shared/ui';
 import { useDeleteCurrentSession } from '@features/kdm-session';
+import { ShowdownMonsterActives } from './showdown-monster-actives';
 
 export const ShowdownMonsterPage = () => {
   const theme = useTheme();
@@ -43,6 +44,9 @@ export const ShowdownMonsterPage = () => {
         <List.Section>
           <List.Subheader>Stats</List.Subheader>
           <ShowdownMonsterStats className="px-4 flex-row gap-4 flex-wrap" />
+
+          <List.Subheader>Actives</List.Subheader>
+          <ShowdownMonsterActives className="px-4 flex-row gap-4 flex-wrap" />
         </List.Section>
       </ScrollView>
     </SafeAreaView>

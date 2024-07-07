@@ -12,15 +12,10 @@ export const getFirstShowdownMonster = (
   }
 
   return {
+    ...encounter,
     id: 'SHOWDOWN_MONSTER_1',
     sessionId,
     year: 0,
     encounterId,
-    movement: encounter?.movement,
-    toughness: encounter?.toughness,
-    speedModifier: encounter?.speedModifier,
-    damageModifier: encounter?.damageModifier,
-    accuracyModifier: encounter?.accuracyModifier,
-    luckModifier: encounter?.luckModifier,
   };
 };

@@ -1,3 +1,5 @@
+import { mediumAspectRatio } from './card';
+
 export type Encounter = {
   id: string;
   name: string;
@@ -8,6 +10,9 @@ export type Encounter = {
   damageModifier: number;
   accuracyModifier: number;
   luckModifier: number;
+  aiActiveIds: string[];
+  imageUrl: string;
+  aspectRatio: number;
 };
 
 export const encounters: Encounter[] = [
@@ -21,5 +26,8 @@ export const encounters: Encounter[] = [
     damageModifier: 0,
     accuracyModifier: 0,
     luckModifier: 0,
+    aiActiveIds: ['WHITE_LION_BASIC_ACTION'],
+    imageUrl: 'https://imgur.com/6voXSGA.png',
+    aspectRatio: mediumAspectRatio,
   },
 ];
