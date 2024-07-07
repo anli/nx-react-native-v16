@@ -5,5 +5,13 @@
   "projectType": "library",
   "sourceRoot": "libs/entities/kdm-showdown/src",
   "tags": ["type:entities"],
-  "targets": {}
+  "targets": {
+    "type-check": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": ["tsc -b"],
+        "cwd": "libs/entities/kdm-showdown"
+      }
+    }
+  }
 }

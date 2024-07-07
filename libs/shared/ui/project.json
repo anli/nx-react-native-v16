@@ -5,5 +5,13 @@
   "projectType": "library",
   "sourceRoot": "libs/shared/ui/src",
   "tags": ["type:shared"],
-  "targets": {}
+  "targets": {
+    "type-check": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": ["tsc -b"],
+        "cwd": "libs/shared/ui"
+      }
+    }
+  }
 }

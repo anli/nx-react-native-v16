@@ -3,7 +3,7 @@ import { ImageStyle, TextStyle } from 'react-native';
 export type ContentElementVariables = {
   windowWidth: number;
   onSurfaceVariant: string;
-  createFirstSession: () => void;
+  createFirstSession?: () => void;
 };
 
 export type ContentElementStyle = (TextStyle | ImageStyle) & {

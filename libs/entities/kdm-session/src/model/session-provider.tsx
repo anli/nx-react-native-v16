@@ -9,9 +9,9 @@ import { Session } from '@shared/api';
 
 type ContextValue = {
   data?: Session[];
-  setData: React.Dispatch<React.SetStateAction<Session[]>>;
+  setData: React.Dispatch<React.SetStateAction<Session[] | undefined>>;
   currentId?: Session['id'];
-  setCurrentId: React.Dispatch<React.SetStateAction<Session['id']>>;
+  setCurrentId: React.Dispatch<React.SetStateAction<Session['id'] | undefined>>;
 };
 
 type ContextProviderProps = PropsWithChildren;
@@ -45,11 +45,15 @@ export const useSessions = () => {
 export const useCurrentSession = () => {
   const { data: sessions, currentId, setData, setCurrentId } = useSessions();
   const index = sessions?.findIndex(({ id }) => id === currentId);
-  const data = sessions?.[index];
+  const data = index !== undefined ? sessions?.[index] : undefined;
+
+  if (index === undefined || !data) {
+    return { data: undefined, mutate: undefined };
+  }
 
   const mutate = (newValue: Session | null) => {
     if (!newValue) {
-      setData((_data) => {
+      setData((_data = []) => {
         const newData = [..._data];
         newData.splice(index, 1);
         return newData;

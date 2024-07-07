@@ -10,12 +10,12 @@ export const ShowdownMonsterPage = () => {
   const theme = useTheme();
   const { data: session, mutate: mutateCurrentSession } = useCurrentSession();
   const { data: showdownMonster } = useShowdownMonster({
-    variables: { sessionId: session.id, year: session.year },
+    variables: { sessionId: session?.id, year: session?.year },
   });
-  const title = `${showdownMonster.encounter.name}`;
+  const title = `${showdownMonster?.encounter.name}`;
 
   const handleRestart = () => {
-    mutateCurrentSession(null);
+    mutateCurrentSession?.(null);
   };
 
   return (

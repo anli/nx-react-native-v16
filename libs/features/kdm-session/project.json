@@ -5,5 +5,13 @@
   "projectType": "library",
   "sourceRoot": "libs/features/kdm-session/src",
   "tags": ["type:features"],
-  "targets": {}
+  "targets": {
+    "type-check": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": ["tsc -b"],
+        "cwd": "libs/features/kdm-session"
+      }
+    }
+  }
 }

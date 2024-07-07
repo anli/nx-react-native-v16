@@ -5,5 +5,13 @@
   "projectType": "library",
   "sourceRoot": "libs/pages/content/src",
   "tags": ["type:pages"],
-  "targets": {}
+  "targets": {
+    "type-check": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": ["tsc -b"],
+        "cwd": "libs/pages/content"
+      }
+    }
+  }
 }
