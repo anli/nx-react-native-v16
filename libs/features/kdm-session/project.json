@@ -1,0 +1,9 @@
+{
+  "// targets": "to see all targets run: nx show project features-kdm-session --web",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "name": "features-kdm-session",
+  "projectType": "library",
+  "sourceRoot": "libs/features/kdm-session/src",
+  "tags": ["type:features"],
+  "targets": {}
+}
