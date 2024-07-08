@@ -1,4 +1,6 @@
 import { mediumAspectRatio } from './card';
+import { MonsterAi } from './monster';
+import { monsterBasics } from './monster-basic';
 
 export type Encounter = {
   id: string;
@@ -10,7 +12,7 @@ export type Encounter = {
   damageModifier: number;
   accuracyModifier: number;
   luckModifier: number;
-  aiActiveIds: string[];
+  aiActiveIds: MonsterAi[];
   imageUrl: string;
   aspectRatio: number;
 };
@@ -26,7 +28,9 @@ export const encounters: Encounter[] = [
     damageModifier: 0,
     accuracyModifier: 0,
     luckModifier: 0,
-    aiActiveIds: ['WHITE_LION_BASIC_ACTION'],
+    aiActiveIds: monsterBasics.filter(
+      (_item) => _item.id === 'WHITE_LION_BASIC_ACTION'
+    ),
     imageUrl: 'https://imgur.com/6voXSGA.png',
     aspectRatio: mediumAspectRatio,
   },

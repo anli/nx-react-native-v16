@@ -5,13 +5,4 @@ export type ShowdownMonster = {
   sessionId: string;
   year: number;
   encounterId: string;
-  aiActiveIds?: string[];
-} & Pick<
-  Encounter,
-  | 'movement'
-  | 'toughness'
-  | 'speedModifier'
-  | 'damageModifier'
-  | 'accuracyModifier'
-  | 'luckModifier'
->;
+} & Omit<Encounter, 'id'>;

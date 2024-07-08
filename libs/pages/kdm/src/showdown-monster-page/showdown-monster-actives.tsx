@@ -24,32 +24,27 @@ export const ShowdownMonsterActives = ({ ...rest }: ViewProps) => {
         onPress={
           showdownMonster.encounter.imageUrl
             ? () =>
-                ImageModal.show({
-                  imageUrl: showdownMonster.encounter.imageUrl ?? '',
-                  aspectRatio: showdownMonster.encounter.aspectRatio,
-                })
+              ImageModal.show({
+                imageUrl: showdownMonster.encounter.imageUrl ?? '',
+                aspectRatio: showdownMonster.encounter.aspectRatio,
+              })
             : undefined
         }
       >
         {showdownMonster.encounter.monster?.name}
       </Chip>
       {!!showdownMonster &&
-        showdownMonster.aiActiveIds?.map((_id) => {
-          const item = monsterAis.find((_item) => _item.id === _id);
-
+        showdownMonster.aiActiveIds?.map((item) => {
           return (
             <Chip
               compact
               key={item?.name}
               mode="outlined"
-              onPress={
-                item
-                  ? () =>
-                      ImageModal.show({
-                        imageUrl: item.imageUrl ?? '',
-                        aspectRatio: item.aspectRatio,
-                      })
-                  : undefined
+              onPress={() =>
+                ImageModal.show({
+                  imageUrl: item.imageUrl,
+                  aspectRatio: item.aspectRatio,
+                })
               }
             >
               {item?.name}
